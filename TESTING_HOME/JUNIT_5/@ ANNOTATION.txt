@@ -1,0 +1,10 @@
+1) @DisplayName - to declare custom display names for test classes and test 
+methods. Отоброжает имя теста или класса в консоли, чтоб потом не запутатся, 
+где какой тест проходил.
+
+2) @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
+public class Phfon_Unit_Test {<-в консоли выведет название класса т.е.'Phfon Unit Test'но без нижних подчёркиваний
+...
+}
+Название методов (если оно содержит нижнее подчёркивание void test_Method_2() ) также выведется без подчёркиваний
+test Method 2

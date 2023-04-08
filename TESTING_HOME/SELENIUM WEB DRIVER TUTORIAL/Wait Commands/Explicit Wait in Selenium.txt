@@ -1,0 +1,20 @@
+(Explicit Wait)-явное ожидание, так как явно прописывается для каждого элемента
+
+Скрипт выполняется намного быстрее реакции приложения на команды, поэтому часто 
+в скриптах необходимо дожидаться определенного состояния приложения для 
+дальнейшего с ним взамодействия.
+
+The Explicit Wait in Selenium is used to tell the Web Driver to wait for certain conditions 
+(Expected Conditions) or maximum time exceeded before throwing “ElementNotVisibleException”. 
+It is an intelligent kind of wait, but it can be applied only for specified elements and we need
+to specify “ExpectedConditions” on the element.
+It gives better options than implicit wait as it waits for dynamically loaded elements.
+
+WebDriverWait wait=new WebDriverWait(driver, 20);
+WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/
+div[1]/section/div[2]/div/div[1]/div/div[1]/div/div/div/d")));
+element.click();
+
+In this WebDriver wait example, wait for the amount of time defined in the “WebDriverWait” class or
+the “ExpectedConditions” to occur whichever occurs first.
+

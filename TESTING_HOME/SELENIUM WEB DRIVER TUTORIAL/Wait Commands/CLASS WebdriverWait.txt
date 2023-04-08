@@ -1,0 +1,23 @@
+This wait class is only applied to the specified element and is used with expectedConditions, all of them are
+constants, such as:
+	.alertIsPresent()
+	.elementSelectionStateToBe()
+	.elementToBeClickable()
+	.elementToBeSelected()
+	.frameToBeAvaliableAndSwitchToIt()
+	.invisibilityOfTheElementLocated()
+	.invisibilityOfElementWithText()
+	.presenceOfAllElementsLocatedBy()
+	.presenceOfElementLocated()
+	.textToBePresentInElement()
+	.textToBePresentInElementLocated()
+	.textToBePresentInElementValue()
+	.titleIs()
+	.titleContains()
+	.visibilityOf()
+	.visibilityOfAllElements()
+	.visibilityOfAllElementsLocatedBy()
+	.visibilityOfElementLocated()
+
+WebDriverWait wait = new WebDriverWait (driver, 20);
+wait.until(ExpectedConditions.VisibilityofElementLocated(By.xpath(""//button[@value='Save Changes']"")));
