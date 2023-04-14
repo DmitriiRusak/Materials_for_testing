@@ -1,0 +1,112 @@
+http://pr0java.blogspot.com/2015/04/classpath-java.html <--источник	
+
+comandi dlia raboti s comand panel:
+1)cd.. smenit direktoriy na odin shag 'naryzzy'
+2)cd  smenit direktoriy na odin shag 'vnytr'.
+3)mkdir - sozdat papky v tekyschei direktorii
+4)echo "Some text">file.txt <--sozdaet fail pod nazvaniem file.txt s soderzzaniem "Some text"
+5)ls <--vivodit faili i papki iz tekyschei direktorii. OPANKI NA CONSOLI NE RABOTAET!!!
+6)del nazvanie_Faila.txt <--ydaliaet fail iz tekyschei direktorii
+
+
+	COMAND PROMT (КОМАНДНАЯ СТРОКА)
+	Для того чтоб скомпилировать, в ком.стр. нужно дойти до этой директории
+(т.е. папки) где лежат .java файлы, помогает команда 
+cd название папки, (абравиатура от change directory) этим самым как бы заходит в папку. но если надо шаг в преды
+дущую директорию(шаг назад) то cd.. 
+C:\Users\user\Desktop>cd Adventure ./РЕШЕНИЯ ./1 ./bin  <--можно указывать папки вот так 
+а не по очереди
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Узнать текущую кодировку можно введя в командной строке команду chcp
+Для изменения кодировки необходимо воспользоваться командой chcp <код_новой_кодировки>
+1251 - Windows-кодировка (Кириллица);
+866 - DOS-кодировка;
+65001 - Кодировка UTF-8;
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+javac -encoding utf8 <--указывает javac-y на кодировку исходного файла, ето если в файле русские символы то лучше всего
+как бы говориш коомпилятору кодируй и сохроняй в такой-то кодировке, по умолчанию там стооит 1252 она не кодирует 
+а искожает русские символы.
+------------------------------------------------------------------------------------------------------
+javac -d C:\java_lerning\Adventure\work_with_cp\src\KODIROVKA -encoding utf8 ./RazborKodirovki.java
+итак файл размещон в папке идеи
+------------------------------------------------------------------------------------------------------
+Можно не коомпилировать .java файл, а сразу запустить с помощью: java ./путь к файлу./путь к файлу./название_файла.java
+
+
+								JAVAC
+ Затем вызываем коомпилятор 
+C:\Users\user\Desktop\Adventure\РЕШЕНИЯ\1>javac ./src./* -d ./bin
+этой командой коомпилятор коомпилирует файлы .java в файлы с расширением .class, 
+можно и так
+C:\Users\user\Desktop\Adventure>javac -d ./solutions/1/bin ./solutions/1/src/Hello_world.java ./solutions/1/src/SaiHello.java
+где javac -d ./solutions/1/bin <--место куда слаживаем файлы .class (но важно НЕНАХОДИТСЯ в данный момент в этой директории
+потому как происходит ошибка и .class файл не создаётся...)
+ ./solutions/1/src/Hello_world.java ./solutions/1/src/SaiHello.java место от куда берём исходники которые перечисляем поодному
+но можно было и черуз * например 
+C:\Users\user\Desktop\Adventure>javac -d ./solutions/1/bin ./solutions/1/src/*    <--/* это как бы команда (всё что тут есть)
+затем запускаем, перейдя в ту папку где лежат .class файлы
+
+Eсли программа состоит из нескольких .java файлов лежащих к примеру в одной общей папке то следует указывать: javac название папки/*
+для коомпиляции.
+
+
+
+cуществует команда javac -soursepath:позволяет коомпилировать файлы из разных директорий
+C:\Users\user\Desktop\Adventure\solutions\1>javac -d bin -sourcepath src/22 ./src/SaiHello.java
+
+где -d bin инструкция куда записывать полученные файлы; -sourcepath путь к источнику(к исходным данным), здесь src/22 
+но можно и src/* и даже если в src будут разные папки с разными файлами .java, то возьмётся класс с main методам ./src/SaiHello.java
+и скомпилируется класс main и все зависящие от него классы которые находятся в src даже не смотря что они могут быть 
+раскиданы  в разных папках но внутри src.Если исходники лежат не только в src то это можно указать через ";" например
+C:\Users\user\Desktop\Adventure\solutions\1>javac -d bin -sourcepath src/*;1 ./src/SaiHello.java   где ;1 место 
+нахождения других, нужных .jar файлов для коомпилятора. 
+также при коомпиляции из "далека" 
+C:\Users\user\Desktop\Adventure>javac -d ./solutions/1/bin ./solutions/1/src/*
+при этом -d ./solutions/1/bin <--это место куда записываются .class файлы
+./solutions/1/src/* <--место от куда читаеи java исходный файл.
+
+!!!Внимание!!! если скомпилировал файл и получил .class, а потом в исходнике зделал поправки, то нужно перекомпилировать исходник
+т.е. .java файл, только тогда изменения вступят в силу, удалять предыдущий .class ненадо он перепишется автоматически...
+
+	JAVA (команда на выполнение)
+C:\Users\user\Desktop\Adventure\РЕШЕНИЯ\1\bin>java SaiHello (нужно указать только имя файла, SaiHello т.е. без расширеня .java)
+если в корневой папке несколько .klass файлов то указать файл где лежит main;
+возможно также использование classpath
+"Достучатся" до скоомпилированных файлов можно наверно с любой "дистанции" для этого 
+следует указать java -classpath ./директория/директория/название файла сметодом main.
+ОЧЕНЬ ВАЖНО ПОСТАВИТЬ ПРОБЕЛ И ТОЧКУ ПОСЛЕ -classpath и дальше через слэшы.
+C:\Users\user\Desktop\Adventure>java -classpath ./solutions/1/bin SaiHello
+
+
+	JAR 
+Для того чтоб запустить jar файл(джава архив) следует использовать ключь -jar пробел и 
+название самого файла с расширением.jar
+C:\Users\user\Desktop\Adventure\solutions\1>java -jar Desktop.jar
+либо заходя из "далека" можно указать путь в рукопашную используя обязательно точку и слэшы ./ / /
+C:\Users\user\Desktop\Adventure\solutions>java -jar ./1/Desktop.jar
+C:\Users\user\Desktop\Adventure>java -jar ./solutions/1/Desktop.jar
+
+Для создания .jar из командной строки вводим:
+C:\Users\user\Desktop\Adventure\solutions\1\bin>jar cvfm Pr.jar manifest.txt Hello_world.class SaiHello.class
+где cvfm-это опции с-create, v-создаёт подробный отчёт об обработке и добовлении каждого .class файла при создании .jar,
+f-файл, m-Указывает, что файл манифеста по умолчанию не должен создаваться.
+т.е. можно и C:\Users\user\Desktop\Adventure\solutions\1\bin>jar cfm Proga.jar manifest.txt Hello_world.class SaiHello.class
+так как в опциях не указанна буква "v" то никакого отчёта не будет в командной строке.
+Proga.jar--- это название будущей jar;
+при этом необходимо иметь документ под названием manifest.txt, где прописать/указать класс
+содержащий метод main, Main-Class: SaiHello в данном случае SaiHello это тот класс где содержится метод
+main.Этот документ должен лежать в той же директории(папке) что и скомпилированные классы.
+Hello_world.class SaiHello.class---классы которые длжны быть добавлены в jar, возможно здесь можно использовать
+какую-то директорию, я не проверял
+
+
+полезная ссылка https://docs.oracle.com/javase/tutorial/deployment/jar/build.html
+https://www.examclouds.com/ru/java/java-core-russian/compile-sourcepath
+
+
+
+
+
+
+
+
