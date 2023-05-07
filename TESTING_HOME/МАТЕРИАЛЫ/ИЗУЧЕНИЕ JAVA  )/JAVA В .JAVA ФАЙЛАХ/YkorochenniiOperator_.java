@@ -1,4 +1,4 @@
-//'&' proveriaet oba operanta
+//'&' Проверяет оба оператора
 //'&&' ne proveriaet vtoroi operant, esli pervii=='false'; 
 public class YkorochenniiOperator& { 
 	public static void main ( String args[] ) { 

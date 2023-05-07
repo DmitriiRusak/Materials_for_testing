@@ -1,0 +1,25 @@
+
+mysql> SELECT now(), user(), database();          ---ВРЕМЯ/ДАТА / ПОЛЬЗОВАТЕЛЬ / ИСПОЛЬЗУЕМАЯ БАЗА ДАННЫХ
+
+mysql> SELECT 2+8;	      			  --- МОЖНО ЩИТАТЬ
+
+-->                             ---ESLI NAZZAL ENTER NE POSTAVIV ';' I OCHYTILSIA NA NOVOI STROKE,DOBAV ';'
+SELECT 'КАКОЙТО ТЕКСТ'                            ---ПЕЧАТУЕТ ТЕКСТ В КОНСОЛИ
+mysql> \s                                         --- ОТРАЖАЕТ ТЕКУЩУЮ ВЕРСИЮ И РАЗНУЮ СТАТИЧЕСКУЮ ИНФ.
+
+mysql> \T C:\Users\user\Desktop\day1.log; ---\T СОЗДАЁТ ФАЙЛ И ЗАПИСЫВАЕТ ВСЮ ИСТОРИЮ НАБОРА КОМАНД (УКАЖИ КУДА)
+mysql> \t                       --- ОТМЕНЯЕТ ЗАПИСЬ ИСТОРИИ В РАНЕЕ СОЗДАННЫЙ ФАЙЛ(ФАЙЛ СОХРАНЯЕТСЯ)
+\. НАЗВАНИЕ ФАЙЛА               ---ВЫЗЫВАЕТ SQLФАЙЛ,РАНЕЕ ЗАПИСАННЫЙ И СОВЕРШАЕТ ВСЕ КОМАНДЫ ПРОПИСАННЫЕ В НЁМ     ---Execute an SQL script file. Takes a file name as an argument.
+SHOW DATABASES                                    ---КАКИЕ БД СУЩЕСТВУЮТ НА СЕРВЕРЕ
+mysql> \u НАЗВАНИЕ БД                             --- МЕНЯЕТ БД НА ТУ,ЧТО УКАЗАЛ В СКРИПТЕ
+mysql> SELECT database();                         --- ПОСМОТРЕТЬ ТЕКУЩУЮ БД
+mysql> SHOW TABLES;                               ---ПОКАЗЫВАЕТ ТАБЛИЦЫ В ТЕКУЩЕЙ БД
+mysql> describe user; или desc user;              --- описание выбранной таблицы (в этом варинту user);
+mysql>  SELECT user, ssl_cipher FROM user;---выбрать user(ето таблица) ssl_cipher (ета столбец в таблице user)
+                                             FROM(указываем таблицу'user')так просматриваются столбцы в таблице
+
+
+
+
+
+

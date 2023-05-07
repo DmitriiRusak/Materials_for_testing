@@ -1,0 +1,92 @@
+CREATE DATABASE poKnige       --- sozdanie db s iminem "poKnige"
+
+DROP DATABASE NAZVANI DB                --- YDALIAET DB
+
+USE NAZVANI DB                          --- ИСПОЛЬЗОВАТЬ DB ИМЯ КОТОРОЙ ТЫ УКАЗАЛ
+
+select database();                      --- выводит в консоль всё что есть в базе
+
+show tables;                            --- покозать существующие таблицы в бд
+
+SHOW DATABASES;                         --- ПОКОЗАТЬ ВСЕ БД НА СЕРВЕРЕ
+
++-------+--------------+------+-----+---------+-------+ --- ETO TAK SKAZAT POLIA KOTORIE DOLZZNI BIT YCHTENI PRI 
+| Field | Type         | Null | Key | Default | Extra |     SOZDANII TABLE
++-------+--------------+------+-----+---------+-------+
+NAZVANIE|TIP ZNACHENIIA| NULL |PRIMA|ZNACHENIE|
+STOLBCA |INT,VARCHAR...| ILI  |RY   |   PO    |
+        |              | NET  |KEY  |DEFOLTY  |
+
+
+CREATE TABLE salespeople (snum int PRIMARY KEY, 
+			 sname VARCHAR (20) NOT NULL DEFAULT 'sumText',
+			 city VARCHAR (33) NOT NULL DEFAULT 'sumText',
+			 comm INT NOT NULL DEFAULT '0');    --- создать таблицу под названием salespeople (название столбца и его тип значения)
+
+
+  A ETO REZYLTAT PREDIDYSCHEI KOMANDI (MI POLYCHILI TABLICY S STOLBCAMI: snum,sname,city,comm).
+		+-------+-------------+------+-----+---------+-------+
+		| Field | Type        | Null | Key | Default | Extra |
+		+-------+-------------+------+-----+---------+-------+
+		| snum  | int         | NO   | PRI | NULL    |       |
+		| sname | varchar(20) | NO   |     | sumText |       |
+		| city  | varchar(33) | NO   |     | sumText |       |
+		| comm  | int         | NO   |     | 0       |       |
+		+-------+-------------+------+-----+---------+-------+
+
+DESC salespeople                        --- показывает таблицу т.е. её структуру (здесь salespeople)с её столбцами
+
+DROP TABLE salespeople;                 --- ydaliaet tablicy salespeople  
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                     vnesenie izmenenii v tablicy
+
+ INSERT INTO salespeople VALUES(1001,'Peel','London',12),     --- T.E. SNACHALA MI YKAZIVALI (INT, varchar, varchar, INT)
+   			    -> (1002,'Serres','San Jose',13), --- И ТАК С КАЖДОЙ ЗАПИСЬЮ (Т.Е. С СТРОЧКОЙ)
+                            -> (1004,'Motika','London',11),        
+                            -> (1007,'Rifkin','Barcelona',15),   
+                            -> (1003,'Axelrod','New York', 10);
+                                INT   VARCHAR    VARCHAR   INT 
+
+
+mysql> SELECT * FROM salespeople;       <---ЭТО УЖЕ "ВЫБОРКА" С ПОМОЩЬЮ SELECT ВСЕГО, ЧТО ЕСТЬ В ТАБЛИЦЕ ПОД НАЗВАНИЕМ salespeople;
+
++------+---------+-----------+------+
+| snum | sname   | city      | comm |
++------+---------+-----------+------+
+| 1001 | Peel    | London    |   12 |
+| 1002 | Serres  | San Jose  |   13 |   <--- ПОЛУЧАЕМ РЕЗУЛЬТАТ
+| 1003 | Axelrod | New York  |   10 |
+| 1004 | Motika  | London    |   11 |
+| 1007 | Rifkin  | Barcelona |   15 |
++------+---------+-----------+------+
+
+
+
+
+ CREATE TABLE Customers (cnum int NOT NULL,
+                         cname VARCHAR (20) NOT NULL DEFAULT ' ',
+                         city VARCHAR (20) NOT NULL DEFAULT ' ',       
+                         raiting INT NOT NULL DEFAULT 0,
+                         snum int NOT NULL DEFAULT 0);
+
+INSERT INTO Customers VALUES(2001,'Hoffman','London',100,1001),
+			    (2002, 'Giovanni','Rome',200,1003),
+			    (2003, 'Liu','San Jose',200,1002),
+			    (2004, 'Grass','Berlin',300,1002),
+       			    (2006, 'Clements','London',100,1001),
+			    (2008, 'Cisneros','San Jose', 300,1007),
+			    (2007, 'Perejra','Rome',100,1004);
+
+CREATE TABLE Orders (onum int,AMT FLOAT,ODATE DATE,CNUM INT, SNUM INT);
+
+INSERT INTO Orders VALUES(3001,18.69,'1990-03-10',2008,1007),
+                         (3003,767.19,'1990-03-10',2001,1001),
+                         (3002,1900.10,'1990-03-10',2007,1004),
+			 (3005,5160.45,'1990-03-10',2003,1002),
+			 (3006,1098.16,'1990-03-10',2008,1007),
+			 (3009,1713.23,'1990-04-19',2002,1003),
+			 (3007,75.75,'1990-04-10',2004,1002),
+			 (3008,4723.00,'1990-05-10',2006,1001),
+			 (3010,1309.95,'1990-06-10',2004,1002),
+			 (3011,9891.88,'1990-06-10',2006,1001);
+                                    

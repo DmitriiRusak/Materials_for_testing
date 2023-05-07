@@ -1,4 +1,11 @@
-// v konsoli, pri proverke kodirovki s pomosch`y komandi chcp polychal otvet 1251
+//Узнать текущую кодировку можно введя в командной строке команду chcp
+//Для изменения кодировки необходимо воспользоваться командой chcp <код_новой_кодировки>
+//1251 - Windows-кодировка (Кириллица);
+//866 - DOS-кодировка;
+//65001 - Кодировка UTF-8;
+ 
+//
+v konsoli, pri proverke kodirovki s pomosch`y komandi chcp polychal otvet 1251
 //chto sootvetstvyet kirilice i rysski tekst dolzzen bil otobrazzatsia korektno 
 //odnako pri vizove java RazborKodirovki.java (t.e. bez koompiliacii) programma xot i
 //zapyskalas korrektno no vidovala "kozibri" vmesto rysskogo.
